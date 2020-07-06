@@ -1,44 +1,46 @@
 package cn.ndky.webtextile.controller;
 
+import cn.ndky.webtextile.common.RespObj;
 import cn.ndky.webtextile.pojo.User;
+import cn.ndky.webtextile.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 public class LoginController {
+
+    @Autowired
+    private UserService userService;
+
 
     /**
      * @Description 登录
      * @date 2018年7月24日下午3:25:46
      */
-    @RequestMapping("/login")
-    public String loginAdmin(String username, String password, HttpSession session) {
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
-        try {
-            subject.login(usernamePasswordToken); // 完成登录
-            User user = (User) subject.getPrincipal();
-            session.setAttribute("user", user);
-            return "redirect:/index";
-        } catch (Exception e) {
-            return "redirect:/welcome";// 返回登录页面
-        }
+    @PostMapping("/login")
+    public RespObj login(String userId, String password, HttpSession session) {
+        return userService.login(userId,password,session);
+
     }
 
     /**
      * @Description 退出
      * @date 2018年7月24日下午3:25:52
      */
-    @RequestMapping("/logOut")
-    public String logOut(HttpSession session) {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
-        return "login";
+    @RequestMapping("/logout")
+    public RespObj logout() {
+        return userService.logout();
+//        Subject subject = SecurityUtils.getSubject();
+//        subject.logout();
+//        return "login";
     }
 
 

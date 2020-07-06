@@ -30,12 +30,12 @@ mybatis:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
 
-shiro:
-  login-url: /welcome
-  unauthorized-url: /unauthorized
-  anon-urls:
-    - /login
-    - /amaze/**
+#shiro:
+#  login-url: /welcome
+#  unauthorized-url: /unauthorized
+#  anon-urls:
+#    - /login
+#    - /amaze/**
 
 server:
   servlet:

@@ -18,14 +18,14 @@ import java.util.Map;
 
 @Configuration
 @Data
-@ConfigurationProperties(prefix = "shiro")
+//@ConfigurationProperties(prefix = "shiro")
 public class ShiroConfig {
 
-    private String loginUrl;
-    private String successUrl;
-    private String unauthorizedUrl;
-
-    private String[] anonUrls;
+//    private String loginUrl;
+//    private String successUrl;
+//    private String unauthorizedUrl;
+//
+//    private String[] anonUrls;
 
 
     /**
@@ -37,20 +37,31 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        shiroFilterFactoryBean.setLoginUrl(loginUrl);
-        shiroFilterFactoryBean.setUnauthorizedUrl(unauthorizedUrl);
-        shiroFilterFactoryBean.setSuccessUrl(successUrl);
+//        shiroFilterFactoryBean.setLoginUrl(loginUrl);
+//        shiroFilterFactoryBean.setUnauthorizedUrl(unauthorizedUrl);
+//        shiroFilterFactoryBean.setSuccessUrl(successUrl);
 
 
-        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<>();
-        if(anonUrls!=null && anonUrls.length>0){
-            for(String url:anonUrls){
-                filterChainDefinitionMap.put(url,"anon");
-            }
-        }
-        filterChainDefinitionMap.put("/**","authc");
+        Map<String,String> filterChainMap = new LinkedHashMap<>();
+//        if(anonUrls!=null && anonUrls.length>0){
+//            for(String url:anonUrls){
+//                filterChainDefinitionMap.put(url,"anon");
+//            }
+//        }
+//        filterChainDefinitionMap.put("/**","authc");
 
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
+        //4.配置logout过滤器
+        filterChainMap.put("/logout", "logout");
+        //5.所有url必须通过认证才可以访问
+        filterChainMap.put("/login", "anon");
+        filterChainMap.put("/amaze/**", "anon");
+        filterChainMap.put("/*", "authc");
+        //6.设置默认登录的url
+        shiroFilterFactoryBean.setLoginUrl("/welcome");
+        //7.设置成功之后要跳转的链接
+        shiroFilterFactoryBean.setSuccessUrl("/index");
+
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
         return shiroFilterFactoryBean;
 
     }

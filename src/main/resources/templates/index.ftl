@@ -36,7 +36,7 @@
             <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
             <li class="am-dropdown" data-am-dropdown>
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> <span></span> <span class="am-icon-caret-down"></span>
+                    <span class="am-icon-users"></span> <span>${Session.currentUser.user.name}</span> <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
@@ -55,6 +55,7 @@
         <div class="am-offcanvas-bar admin-offcanvas-bar">
             <ul class="am-list admin-sidebar-list">
                 <li><a href="/Webtextile/index"><span class="am-icon-home"></span> 首页</a></li>
+                <@shiro.hasAnyRoles name="admin,teacher">
                 <li class="admin-parent">
                     <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                     <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
@@ -65,6 +66,7 @@
                         <li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>
                     </ul>
                 </li>
+                </@shiro.hasAnyRoles>
                 <li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
                 <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
                 <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>

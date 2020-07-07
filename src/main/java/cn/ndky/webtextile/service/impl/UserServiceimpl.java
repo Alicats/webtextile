@@ -1,7 +1,7 @@
 package cn.ndky.webtextile.service.impl;
 
 import cn.ndky.webtextile.common.RespObj;
-import cn.ndky.webtextile.common.ShiroUser;
+import cn.ndky.webtextile.pojo.User;
 import cn.ndky.webtextile.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.LockedAccountException;
@@ -26,8 +26,6 @@ public class UserServiceimpl implements UserService {
     @Override
     public RespObj login(String userId, String password, HttpSession session) {
 
-//        if(!verify)
-//            return RespObj.build(500,"验证码错误",null);
 
         Subject subject = SecurityUtils.getSubject();
 
@@ -35,8 +33,7 @@ public class UserServiceimpl implements UserService {
             UsernamePasswordToken token = new UsernamePasswordToken(userId,password);
             try{
                 subject.login(token);
-                session.setAttribute("currentUser",(ShiroUser)subject.getPrincipal());
-                session.setAttribute("aa","张三");
+                session.setAttribute("currentUser",(User)subject.getPrincipal());
                 return RespObj.build(200,"ok",null);
             }catch (LockedAccountException lae){
                 return RespObj.build(500,lae.getMessage(),null);

@@ -10,19 +10,19 @@
         WHERE user_id=#{userId}
     </select>
 
-    <select id="getRoleIdsByUserId" resultType="String">
-        SELECT r.role_id
-        FROM tb_user AS u,tb_role AS r,tb_user_role AS ur
-        WHERE u.user_id = ur.user_id
-        AND r.role_id = ur.role_id
-        AND u.user_id = #{userId}
-    </select>
+    <!--<select id="getRoleIdsByUserId" resultType="String">-->
+        <!--SELECT r.role_id-->
+        <!--FROM tb_user AS u,tb_role AS r,tb_user_role AS ur-->
+        <!--WHERE u.user_id = ur.user_id-->
+        <!--AND r.role_id = ur.role_id-->
+        <!--AND u.user_id = #{userId}-->
+    <!--</select>-->
 
-    <select id="getRoleNamesByUserId" parameterType="String" resultType="String">
-        SELECT r.role_desc
-        FROM tb_user AS u,tb_role AS r,tb_user_role AS ur
-        WHERE u.user_id = ur.user_id
-        AND r.role_id = ur.role_id
-        AND u.user_id = #{userId}
-    </select>
+    <!--<select id="getRoleNamesByUserId" parameterType="String" resultType="String">-->
+        <!--SELECT r.role_desc-->
+        <!--FROM tb_user AS u,tb_role AS r,tb_user_role AS ur-->
+        <!--WHERE u.user_id = ur.user_id-->
+        <!--AND r.role_id = ur.role_id-->
+        <!--AND u.user_id = #{userId}-->
+    <!--</select>-->
 </mapper>

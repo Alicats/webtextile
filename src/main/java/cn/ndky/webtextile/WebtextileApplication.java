@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-//@EnableConfigurationProperties(ShiroConfig.class)
 @MapperScan("cn.ndky.webtextile.mapper")
 public class WebtextileApplication {
 

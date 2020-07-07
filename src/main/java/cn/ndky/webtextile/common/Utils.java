@@ -1,5 +1,6 @@
 package cn.ndky.webtextile.common;
 
+import cn.ndky.webtextile.pojo.User;
 import org.apache.shiro.crypto.hash.SimpleHash;
 
 import javax.servlet.http.HttpSession;
@@ -11,8 +12,8 @@ public class Utils {
      * @param session
      * @return
      */
-    public static ShiroUser getSessionUser(HttpSession session){
-        return (ShiroUser)session.getAttribute("currentUser");
+    public static User getSessionUser(HttpSession session){
+        return (User)session.getAttribute("currentUser");
     }
 
     /**

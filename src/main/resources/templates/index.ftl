@@ -7,355 +7,529 @@
     <title>Amaze UI Admin index Examples</title>
     <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="/Webtextile/amaze/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="/Webtextile/amaze/assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="/Webtextile/admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/Webtextile/admin/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="/Webtextile/amaze/assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="/Webtextile/amaze/assets/css/admin.css">
+    <script src="/Webtextile/admin/assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/app.css">
+    <script src="/Webtextile/admin/assets/js/jquery.min.js"></script>
+
 </head>
-<body>
-　  
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-    以获得更好的体验！</p>
-<![endif]-->
+<body data-type="index">
+    <script src="/Webtextile/admin/assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 头部 -->
+        <header>
+            <!-- logo -->
+            <div class="am-fl tpl-header-logo">
+                <a href="javascript:;"><img src="/Webtextile/admin/assets/img/logo.png" alt=""></a>
+            </div>
+            <!-- 右侧内容 -->
+            <div class="tpl-header-fluid">
+                <!-- 侧边切换 -->
+                <div class="am-fl tpl-header-switch-button am-icon-list">
+                        <span>
 
-<header class="am-topbar admin-header">
-    <div class="am-topbar-brand">
-        <strong>Amaze UI</strong> <small>后台管理模板</small>
-    </div>
+                    </span>
+                </div>
+                <!-- 搜索 -->
+                <div class="am-fl tpl-header-search">
+                    <form class="tpl-header-search-form" action="javascript:;">
+                        <button class="tpl-header-search-btn am-icon-search"></button>
+                        <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
+                    </form>
+                </div>
+                <!-- 其它功能-->
+                <div class="am-fr tpl-header-navbar">
+                    <ul>
+                        <!-- 欢迎语 -->
+                        <li class="am-text-sm tpl-header-navbar-welcome">
+                            <a href="javascript:;">欢迎你, <span>${Session.currentUser.username}</span> </a>
+                        </li>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+                        <!-- 新邮件 -->
+                        <li class="am-dropdown tpl-dropdown" data-am-dropdown>
+                            <a href="javascript:;" class="am-dropdown-toggle tpl-dropdown-toggle" data-am-dropdown-toggle>
+                                <i class="am-icon-envelope"></i>
+                                <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
+                            </a>
+                            <!-- 弹出列表 -->
+                            <ul class="am-dropdown-content tpl-dropdown-content">
+                                <li class="tpl-dropdown-menu-messages">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                        <div class="menu-messages-ico">
+                                            <img src="/Webtextile/admin/assets/img/user04.png" alt="">
+                                        </div>
+                                        <div class="menu-messages-time">
+                                            3小时前
+                                        </div>
+                                        <div class="menu-messages-content">
+                                            <div class="menu-messages-content-title">
+                                                <i class="am-icon-circle-o am-text-success"></i>
+                                                <span>夕风色</span>
+                                            </div>
+                                            <div class="am-text-truncate"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </div>
+                                            <div class="menu-messages-content-time">2016-09-21 下午 16:40</div>
+                                        </div>
+                                    </a>
+                                </li>
 
-    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+                                <li class="tpl-dropdown-menu-messages">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                        <div class="menu-messages-ico">
+                                            <img src="/Webtextile/admin/assets/img/user02.png" alt="">
+                                        </div>
+                                        <div class="menu-messages-time">
+                                            5天前
+                                        </div>
+                                        <div class="menu-messages-content">
+                                            <div class="menu-messages-content-title">
+                                                <i class="am-icon-circle-o am-text-warning"></i>
+                                                <span>禁言小张</span>
+                                            </div>
+                                            <div class="am-text-truncate"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </div>
+                                            <div class="menu-messages-content-time">2016-09-16 上午 09:23</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tpl-dropdown-menu-messages">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
+                                        <i class="am-icon-circle-o"></i> 进入列表…
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-            <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
-            <li class="am-dropdown" data-am-dropdown>
-                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> <span>${Session.currentUser.user.name}</span> <span class="am-icon-caret-down"></span>
-                </a>
-                <ul class="am-dropdown-content">
-                    <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
-                    <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-                    <li><a href="/Webtextile/logout"><span class="am-icon-power-off"></span> 退出</a></li>
-                </ul>
-            </li>
-            <#--<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>-->
-        </ul>
-    </div>
-</header>
+                        <!-- 新提示 -->
+                        <li class="am-dropdown" data-am-dropdown>
+                            <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
+                                <i class="am-icon-bell"></i>
+                                <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
+                            </a>
 
-<div class="am-cf admin-main">
-    <!-- sidebar start -->
-    <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
-        <div class="am-offcanvas-bar admin-offcanvas-bar">
-            <ul class="am-list admin-sidebar-list">
-                <li><a href="/Webtextile/index"><span class="am-icon-home"></span> 首页</a></li>
-                <@shiro.hasAnyRoles name="admin,teacher">
-                <li class="admin-parent">
-                    <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
-                    <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-                        <li><a href="/Webtextile/userInfo" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
-                        <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
-                        <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
-                        <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
-                        <li><a href="admin-404.html"><span class="am-icon-bug"></span> 404</a></li>
+                            <!-- 弹出列表 -->
+                            <ul class="am-dropdown-content tpl-dropdown-content">
+                                <li class="tpl-dropdown-menu-notifications">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                        <div class="tpl-dropdown-menu-notifications-title">
+                                            <i class="am-icon-line-chart"></i>
+                                            <span> 有6笔新的销售订单</span>
+                                        </div>
+                                        <div class="tpl-dropdown-menu-notifications-time">
+                                            12分钟前
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tpl-dropdown-menu-notifications">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                        <div class="tpl-dropdown-menu-notifications-title">
+                                            <i class="am-icon-star"></i>
+                                            <span> 有3个来自人事部的消息</span>
+                                        </div>
+                                        <div class="tpl-dropdown-menu-notifications-time">
+                                            30分钟前
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="tpl-dropdown-menu-notifications">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                        <div class="tpl-dropdown-menu-notifications-title">
+                                            <i class="am-icon-folder-o"></i>
+                                            <span> 上午开会记录存档</span>
+                                        </div>
+                                        <div class="tpl-dropdown-menu-notifications-time">
+                                            1天前
+                                        </div>
+                                    </a>
+                                </li>
+
+
+                                <li class="tpl-dropdown-menu-notifications">
+                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
+                                        <i class="am-icon-bell"></i> 进入列表…
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 退出 -->
+                        <li class="am-text-sm">
+                            <a href="/Webtextile/logout">
+                                <span class="am-icon-sign-out"></span> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
+            </div>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+        <!-- 侧边导航栏 -->
+        <div class="left-sidebar">
+            <!-- 用户信息 -->
+            <div class="tpl-sidebar-user-panel">
+                <div class="tpl-user-panel-slide-toggleable">
+                    <div class="tpl-user-panel-profile-picture">
+                        <img src="/Webtextile/admin/assets/img/user04.png" alt="">
+                    </div>
+                    <span class="user-panel-logged-in-text">
+                  <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+                  禁言小张
+              </span>
+                    <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+                </div>
+            </div>
+
+            <!-- 菜单 -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
+                <li class="sidebar-nav-link">
+                    <a href="index.html" class="active">
+                        <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="tables.html">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="calendar.html">
+                        <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="form.html">
+                        <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
+
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="chart.html">
+                        <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
+
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
+                <@shiro.hasAnyRoles name="admin,enterprise">
+                <li class="sidebar-nav-link">
+                    <a href="javascript:;" class="sidebar-nav-sub-title">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
+                        <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                    </a>
+                    <ul class="sidebar-nav sidebar-nav-sub">
+                        <li class="sidebar-nav-link">
+                            <a href="table-list.html">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
+                            </a>
+                        </li>
+
+                        <li class="sidebar-nav-link">
+                            <a href="table-list-img.html">
+                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 </@shiro.hasAnyRoles>
-                <li><a href="admin-table.html"><span class="am-icon-table"></span> 表格</a></li>
-                <li><a href="admin-form.html"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
-                <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+                <li class="sidebar-nav-link">
+                    <a href="sign-up.html">
+                        <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
+                        <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="login.html">
+                        <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
+                    </a>
+                </li>
+                <li class="sidebar-nav-link">
+                    <a href="404.html">
+                        <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
+                    </a>
+                </li>
+
             </ul>
-
-            <div class="am-panel am-panel-default admin-sidebar-panel">
-                <div class="am-panel-bd">
-                    <p><span class="am-icon-bookmark"></span> 公告</p>
-                    <p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
-                </div>
-            </div>
-
-            <div class="am-panel am-panel-default admin-sidebar-panel">
-                <div class="am-panel-bd">
-                    <p><span class="am-icon-tag"></span> wiki</p>
-                    <p>Welcome to the Amaze UI wiki!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- sidebar end -->
-
-    <!-- content start -->
-    <div class="admin-content">
-
-        <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">首页</strong> / <small>一些常用模块</small></div>
         </div>
 
-        <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
-            <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增页面<br/>2300</a></li>
-            <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>成交订单<br/>308</a></li>
-            <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
-            <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a></li>
-        </ul>
 
-        <div class="am-g">
-            <div class="am-u-sm-12">
-                <table class="am-table am-table-bd am-table-striped admin-content-table">
-                    <thead>
-                    <tr>
-                        <th>ID</th><th>用户名</th><th>最后成交任务</th><th>成交订单</th><th>管理</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr><td>1</td><td>John Clark</td><td><a href="#">Business management</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
-                        <td>
-                            <div class="am-dropdown" data-am-dropdown>
-                                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                <ul class="am-dropdown-content">
-                                    <li><a href="#">1. 编辑</a></li>
-                                    <li><a href="#">2. 下载</a></li>
-                                    <li><a href="#">3. 删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td>2</td><td>风清扬</td><td><a href="#">公司LOGO设计</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
-                        <td>
-                            <div class="am-dropdown" data-am-dropdown>
-                                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                <ul class="am-dropdown-content">
-                                    <li><a href="#">1. 编辑</a></li>
-                                    <li><a href="#">2. 下载</a></li>
-                                    <li><a href="#">3. 删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td>3</td><td>詹姆斯</td><td><a href="#">开发一款业务数据软件</a></td><td><span class="am-badge am-badge-warning">+10</span></td>
-                        <td>
-                            <div class="am-dropdown" data-am-dropdown>
-                                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                <ul class="am-dropdown-content">
-                                    <li><a href="#">1. 编辑</a></li>
-                                    <li><a href="#">2. 下载</a></li>
-                                    <li><a href="#">3. 删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr><td>4</td><td>云适配</td><td><a href="#">适配所有网站</a></td><td><span class="am-badge am-badge-secondary">+50</span></td>
-                        <td>
-                            <div class="am-dropdown" data-am-dropdown>
-                                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                <ul class="am-dropdown-content">
-                                    <li><a href="#">1. 编辑</a></li>
-                                    <li><a href="#">2. 下载</a></li>
-                                    <li><a href="#">3. 删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+        <!-- 内容区域 -->
+        <div class="tpl-content-wrapper">
 
-                    <tr>
-                        <td>5</td><td>呵呵呵</td>
-                        <td><a href="#">基兰会获得BUFF</a></td>
-                        <td><span class="am-badge">+22</span></td>
-                        <td>
-                            <div class="am-dropdown" data-am-dropdown>
-                                <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
-                                <ul class="am-dropdown-content">
-                                    <li><a href="#">1. 编辑</a></li>
-                                    <li><a href="#">2. 下载</a></li>
-                                    <li><a href="#">3. 删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="am-g">
-            <div class="am-u-md-6">
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-1'}">文件上传<span class="am-icon-chevron-down am-fr" ></span></div>
-                    <div class="am-panel-bd am-collapse am-in" id="collapse-panel-1">
-                        <ul class="am-list admin-content-file">
-                            <li>
-                                <strong><span class="am-icon-upload"></span> Kong-cetian.Mp3</strong>
-                                <p>3.3 of 5MB - 5 mins - 1MB/Sec</p>
-                                <div class="am-progress am-progress-striped am-progress-sm am-active">
-                                    <div class="am-progress-bar am-progress-bar-success" style="width: 82%">82%</div>
-                                </div>
-                            </li>
-                            <li>
-                                <strong><span class="am-icon-check"></span> 好人-cetian.Mp3</strong>
-                                <p>3.3 of 5MB - 5 mins - 3MB/Sec</p>
-                            </li>
-                            <li>
-                                <strong><span class="am-icon-check"></span> 其实都没有.Mp3</strong>
-                                <p>3.3 of 5MB - 5 mins - 3MB/Sec</p>
-                            </li>
-                        </ul>
+            <div class="container-fluid am-cf">
+                <div class="row">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+                        <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 部件首页 <small>Amaze UI</small></div>
+                        <p class="page-header-description">Amaze UI 含近 20 个 CSS 组件、20 余 JS 组件，更有多个包含不同主题的 Web 组件。</p>
                     </div>
-                </div>
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-2'}">浏览器统计<span class="am-icon-chevron-down am-fr" ></span></div>
-                    <div id="collapse-panel-2" class="am-in">
-                        <table class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
-                            <tbody>
-                            <tr>
-                                <th class="am-text-center">#</th>
-                                <th>浏览器</th>
-                                <th>访问量</th>
-                            </tr>
-                            <tr>
-                                <td class="am-text-center"><img src="/Webtextile/amaze/assets/i/examples/admin-chrome.png" alt=""></td>
-                                <td>Google Chrome</td>
-                                <td>3,005</td>
-                            </tr>
-                            <tr>
-                                <td class="am-text-center"><img src="/Webtextile/amaze/assets/i/examples/admin-firefox.png" alt=""></td>
-                                <td>Mozilla Firefox</td>
-                                <td>2,505</td>
-                            </tr>
-                            <tr>
-                                <td class="am-text-center"><img src="/Webtextile/amaze/assets/i/examples/admin-ie.png" alt=""></td>
-                                <td>Internet Explorer</td>
-                                <td>1,405</td>
-                            </tr>
-                            <tr>
-                                <td class="am-text-center"><img src="/Webtextile/amaze/assets/i/examples/admin-opera.png" alt=""></td>
-                                <td>Opera</td>
-                                <td>4,005</td>
-                            </tr>
-                            <tr>
-                                <td class="am-text-center"><img src="/Webtextile/amaze/assets/i/examples/admin-safari.png" alt=""></td>
-                                <td>Safari</td>
-                                <td>505</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="am-u-md-6">
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-4'}">任务 task<span class="am-icon-chevron-down am-fr" ></span></div>
-                    <div id="collapse-panel-4" class="am-panel-bd am-collapse am-in">
-                        <ul class="am-list admin-content-task">
-                            <li>
-                                <div class="admin-task-meta"> Posted on 25/1/2120 by John Clark</div>
-                                <div class="admin-task-bd">
-                                    The starting place for exploring business management; helping new managers get started and experienced managers get better.
-                                </div>
-                                <div class="am-cf">
-                                    <div class="am-btn-toolbar am-fl">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-check"></span></button>
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-pencil"></span></button>
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-times"></span></button>
-                                        </div>
-                                    </div>
-                                    <div class="am-fr">
-                                        <button type="button" class="am-btn am-btn-default am-btn-xs">删除</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="admin-task-meta"> Posted on 25/1/2120 by 呵呵呵</div>
-                                <div class="admin-task-bd">
-                                    基兰和狗熊出现在不同阵营时。基兰会获得BUFF，“装甲熊憎恨者”。狗熊会获得BUFF，“时光老人憎恨者”。
-                                </div>
-                                <div class="am-cf">
-                                    <div class="am-btn-toolbar am-fl">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-check"></span></button>
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-pencil"></span></button>
-                                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-times"></span></button>
-                                        </div>
-                                    </div>
-                                    <div class="am-fr">
-                                        <button type="button" class="am-btn am-btn-default am-btn-xs">删除</button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="am-u-lg-3 tpl-index-settings-button">
+                        <button type="button" class="page-header-button"><span class="am-icon-paint-brush"></span> 设置</button>
                     </div>
                 </div>
 
-                <div class="am-panel am-panel-default">
-                    <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-3'}">最近留言<span class="am-icon-chevron-down am-fr" ></span></div>
-                    <div class="am-panel-bd am-collapse am-in am-cf" id="collapse-panel-3">
-                        <ul class="am-comments-list admin-content-comment">
-                            <li class="am-comment">
-                                <a href="#"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-                                <div class="am-comment-main">
-                                    <header class="am-comment-hd">
-                                        <div class="am-comment-meta"><a href="#" class="am-comment-author">某人</a> 评论于 <time>2014-7-12 15:30</time></div>
-                                    </header>
-                                    <div class="am-comment-bd"><p>遵循 “移动优先（Mobile First）”、“渐进增强（Progressive enhancement）”的理念，可先从移动设备开始开发网站，逐步在扩展的更大屏幕的设备上，专注于最重要的内容和交互，很好。</p>
+            </div>
+
+            <div class="row-content am-cf">
+                <div class="row  am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">月度财务收支计划</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body am-fr">
+                                <div class="am-fl">
+                                    <div class="widget-fluctuation-period-text">
+                                        ￥61746.45
+                                        <button class="widget-fluctuation-tpl-btn">
+                                            <i class="am-icon-calendar"></i>
+                                            更多月份
+                                        </button>
                                     </div>
                                 </div>
-                            </li>
+                                <div class="am-fr am-cf">
+                                    <div class="widget-fluctuation-description-amount text-success" am-cf>
+                                        +￥30420.56
 
-                            <li class="am-comment">
-                                <a href="#"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
-                                <div class="am-comment-main">
-                                    <header class="am-comment-hd">
-                                        <div class="am-comment-meta"><a href="#" class="am-comment-author">某人</a> 评论于 <time>2014-7-12 15:30</time></div>
-                                    </header>
-                                    <div class="am-comment-bd"><p>有效减少为兼容旧浏览器的臃肿代码；基于 CSS3 的交互效果，平滑、高效。AMUI专注于现代浏览器（支持HTML5），不再为过时的浏览器耗费资源，为更有价值的用户提高更好的体验。</p>
+                                    </div>
+                                    <div class="widget-fluctuation-description-text am-text-right">
+                                        8月份收入
                                     </div>
                                 </div>
-                            </li>
+                            </div>
+                        </div>
 
-                        </ul>
-                        <ul class="am-pagination am-fr admin-content-pagination">
-                            <li class="am-disabled"><a href="#">&laquo;</a></li>
-                            <li class="am-active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+                        <div class="widget widget-primary am-cf">
+                            <div class="widget-statistic-header">
+                                本季度利润
+                            </div>
+                            <div class="widget-statistic-body">
+                                <div class="widget-statistic-value">
+                                    ￥27,294
+                                </div>
+                                <div class="widget-statistic-description">
+                                    本季度比去年多收入 <strong>2593元</strong> 人民币
+                                </div>
+                                <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+                        <div class="widget widget-purple am-cf">
+                            <div class="widget-statistic-header">
+                                本季度利润
+                            </div>
+                            <div class="widget-statistic-body">
+                                <div class="widget-statistic-value">
+                                    ￥27,294
+                                </div>
+                                <div class="widget-statistic-description">
+                                    本季度比去年多收入 <strong>2593元</strong> 人民币
+                                </div>
+                                <span class="widget-statistic-icon am-icon-support"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row am-cf">
+                    <div class="am-u-sm-12 am-u-md-8">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">月度财务收支计划</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body-md widget-body tpl-amendment-echarts am-fr" id="tpl-echarts">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-4">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">专用服务器负载</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body widget-body-md am-fr">
+
+                                <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar" style="width: 15%"></div>
+                                </div>
+                                <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar  am-progress-bar-warning" style="width: 75%"></div>
+                                </div>
+                                <div class="am-progress-title">CPU Load <span class="am-fr am-progress-title-more">28% / 100%</span></div>
+                                <div class="am-progress">
+                                    <div class="am-progress-bar am-progress-bar-danger" style="width: 35%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row am-cf">
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-4 widget-margin-bottom-lg ">
+                        <div class="tpl-user-card am-text-center widget-body-lg">
+                            <div class="tpl-user-card-title">
+                                禁言小张
+                            </div>
+                            <div class="achievement-subheading">
+                                月度最佳员工
+                            </div>
+                            <img class="achievement-image" src="/Webtextile/admin/assets/img/user07.png" alt="">
+                            <div class="achievement-description">
+                                禁言小张在
+                                <strong>30天内</strong> 禁言了
+                                <strong>200多</strong>人。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-8 widget-margin-bottom-lg">
+
+                        <div class="widget am-cf widget-body-lg">
+
+                            <div class="widget-body  am-fr">
+                                <div class="am-scrollable-horizontal ">
+                                    <table width="100%" class="am-table am-table-compact am-text-nowrap tpl-table-black " id="example-r">
+                                        <thead>
+                                        <tr>
+                                            <th>文章标题</th>
+                                            <th>作者</th>
+                                            <th>时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="gradeX">
+                                            <td>新加坡大数据初创公司 Latize 获 150 万美元风险融资</td>
+                                            <td>张鹏飞</td>
+                                            <td>2016-09-26</td>
+                                            <td>
+                                                <div class="tpl-table-black-operation">
+                                                    <a href="javascript:;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>自拍的“政治角色”：观众背对希拉里自拍合影表示“支持”</td>
+                                            <td>天纵之人</td>
+                                            <td>2016-09-26</td>
+                                            <td>
+                                                <div class="tpl-table-black-operation">
+                                                    <a href="javascript:;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="gradeX">
+                                            <td>关于创新管理，我想和你当面聊聊。</td>
+                                            <td>王宽师</td>
+                                            <td>2016-09-26</td>
+                                            <td>
+                                                <div class="tpl-table-black-operation">
+                                                    <a href="javascript:;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>究竟是趋势带动投资，还是投资引领趋势？</td>
+                                            <td>着迷</td>
+                                            <td>2016-09-26</td>
+                                            <td>
+                                                <div class="tpl-table-black-operation">
+                                                    <a href="javascript:;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>Docker领域再添一员，网易云发布“蜂巢”，加入云计算之争</td>
+                                            <td>醉里挑灯看键</td>
+                                            <td>2016-09-26</td>
+                                            <td>
+                                                <div class="tpl-table-black-operation">
+                                                    <a href="javascript:;">
+                                                        <i class="am-icon-pencil"></i> 编辑
+                                                    </a>
+                                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                        <i class="am-icon-trash"></i> 删除
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                        <!-- more data -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- content end -->
+    </div>
+    <script src="/Webtextile/admin/assets/js/amazeui.min.js"></script>
+    <script src="/Webtextile/admin/assets/js/amazeui.datatables.min.js"></script>
+    <script src="/Webtextile/admin/assets/js/dataTables.responsive.min.js"></script>
+    <script src="/Webtextile/admin/assets/js/app.js"></script>
+    <script src="/Webtextile/layer/layer.js"></script>
 
-</div>
-
-<a href="#" class="am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">
-    <span class="am-icon-btn am-icon-th-list"></span>
-</a>
-
-<footer>
-    <hr>
-    <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
-</footer>
-
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="/Webtextile/amaze/assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="/Webtextile/amaze/assets/js/jquery.min.js"></script>
-<!--<![endif]-->
-<script src="/Webtextile/amaze/assets/js/amazeui.min.js"></script>
-<script src="/Webtextile/amaze/assets/js/app.js"></script>
-
-</body>  
+    <script>
+        layer.msg("登录成功",{icon: 6,time:1000});
+    </script>
+</body>
 </html>

@@ -16,7 +16,7 @@ public class FreemarkerConfig {
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:templates/");
         freemarker.template.Configuration configuration = freeMarkerConfigurer.createConfiguration();
         configuration.setDefaultEncoding("UTF-8");
-        //这里可以添加其他共享变量 比如sso登录地址
+        //使页面可以使用shiro标签
         configuration.setSharedVariable("shiro", new ShiroTags());
         freeMarkerConfigurer.setConfiguration(configuration);
         return freeMarkerConfigurer;

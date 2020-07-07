@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Login Page | Amaze UI Example</title>
+<head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="alternate icon" type="image/png" href="/Webtextile/amaze/assets/i/favicon.png">
-    <link rel="stylesheet" href="/Webtextile/amaze/assets/css/amazeui.min.css"/>
-
-    <script src="/Webtextile/amaze/assets/js/jquery.min.js"></script>
-
-    <style>
-        .header {
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 200%;
-            color: #333;
-            margin-top: 30px;
-        }
-        .header p {
-            font-size: 14px;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="/Webtextile/admin/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/Webtextile/admin/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="/Webtextile/admin/assets/css/app.css">
+    <script src="/Webtextile/admin/assets/js/jquery.min.js"></script>
 </head>
-<body>
-<div class="header">
-    <div class="am-g">
-        <h1>登录页面</h1>
-
-    </div>
-    <hr />
-</div>
-<div class="am-g">
-    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <h3>登录</h3>
-        <hr>
-
-        <br>
-        <br>
-
-        <form  class="am-form">
-            <label for="userId">账号:</label>
-            <input type="text" name="" id="userId" value="">
-            <br>
-            <label for="password">密码:</label>
-            <input type="password" name="" id="password" value="">
-            <br>
-
-            <br />
-            <div class="am-cf">
-                <input type="button" name="" id="login" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
-                <#--<input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">-->
+<body data-type="login">
+    <script src="/Webtextile/admin/assets/js/theme.js"></script>
+    <div class="am-g tpl-g">
+        <!-- 风格切换 -->
+        <div class="tpl-skiner">
+            <div class="tpl-skiner-toggle am-icon-cog">
             </div>
-        </form>
-        <hr>
-        <p>© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+            <div class="tpl-skiner-content">
+                <div class="tpl-skiner-content-title">
+                    选择主题
+                </div>
+                <div class="tpl-skiner-content-bar">
+                    <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                    <span class="skiner-color skiner-black" data-color="theme-black"></span>
+                </div>
+            </div>
+        </div>
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                <div class="tpl-login-logo">
+
+                </div>
+
+
+
+                <form class="am-form tpl-form-line-form">
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" id="userId" placeholder="请输入账号">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" id="password" placeholder="请输入密码">
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <button type="button" id="login" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+    <script src="/Webtextile/admin/assets/js/amazeui.min.js"></script>
+    <script src="/Webtextile/admin/assets/js/app.js"></script>
+    <script src="/Webtextile/layer/layer.js"></script>
 
-<script>
-    $("#login").on('click',function () {
-        $.ajax({
-            url: '/Webtextile/login',
-            type: 'post',
-            data: {
-                userId: $("#userId").val(),
-                password: $("#password").val()
-            },
-            success: function (dt) {
-                if(dt.code === 200){
-                    location.href = "/Webtextile/index";
+    <script>
+        $("#login").on('click',function () {
+            $.ajax({
+                url: '/Webtextile/login',
+                type: 'post',
+                data: {
+                    userId: $("#userId").val(),
+                    password: $("#password").val()
+                },
+                success: function (dt) {
+                    console.log(dt);
+                    if(dt.code === 200){
+                        location.href = "/Webtextile/index";
+                    }else {
+                        layer.msg("账号或密码错误",{icon: 5,time: 1000});
+                    }
                 }
-            }
+            })
         })
-    })
-</script>
-
+    </script>
 </body>
 </html>

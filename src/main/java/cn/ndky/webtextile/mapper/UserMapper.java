@@ -11,7 +11,7 @@ public interface UserMapper {
 
     public User getUserByUserId(String userId);
 
-    public List<String> getRoleIdsByUserId(String userId);
-
-    public List<String> getRoleNamesByUserId(String userId);
+//    public List<String> getRoleIdsByUserId(String userId);
+//
+//    public List<String> getRoleNamesByUserId(String userId);
 }

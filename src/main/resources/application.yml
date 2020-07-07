@@ -14,11 +14,11 @@ spring:
     expose-session-attributes: true
     request-context-attribute: request
     suffix: .ftl
-  #  访问静态资源css    href="/amazeframe/static/amaze/assets/..."
+  #  访问静态资源css    href="/Webtextile/static/amaze/assets/..."
   #  mvc:
   #    static-path-pattern: /static/**
 
-  # 访问静态资源css   href="/amazeframe/amaze/assets/..."
+  # 访问静态资源css   href="/Webtextile/amaze/assets/..."
   resources:
     static-locations: classpath:/static
 
@@ -30,12 +30,6 @@ mybatis:
     map-underscore-to-camel-case: true
     auto-mapping-behavior: full
 
-#shiro:
-#  login-url: /welcome
-#  unauthorized-url: /unauthorized
-#  anon-urls:
-#    - /login
-#    - /amaze/**
 
 server:
   servlet:

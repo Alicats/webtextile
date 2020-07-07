@@ -28,7 +28,6 @@ public class LoginController {
     @PostMapping("/login")
     public RespObj login(String userId, String password, HttpSession session) {
         return userService.login(userId,password,session);
-
     }
 
     /**
@@ -38,9 +37,7 @@ public class LoginController {
     @RequestMapping("/logout")
     public RespObj logout() {
         return userService.logout();
-//        Subject subject = SecurityUtils.getSubject();
-//        subject.logout();
-//        return "login";
+
     }
 
 

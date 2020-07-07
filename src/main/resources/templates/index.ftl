@@ -23,6 +23,8 @@
 <body data-type="index">
     <script src="/Webtextile/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
+
+
         <!-- 头部 -->
         <header>
             <!-- logo -->
@@ -105,57 +107,6 @@
                             </ul>
                         </li>
 
-                        <!-- 新提示 -->
-                        <li class="am-dropdown" data-am-dropdown>
-                            <a href="javascript:;" class="am-dropdown-toggle" data-am-dropdown-toggle>
-                                <i class="am-icon-bell"></i>
-                                <span class="am-badge am-badge-warning am-round item-feed-badge">5</span>
-                            </a>
-
-                            <!-- 弹出列表 -->
-                            <ul class="am-dropdown-content tpl-dropdown-content">
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <div class="tpl-dropdown-menu-notifications-title">
-                                            <i class="am-icon-line-chart"></i>
-                                            <span> 有6笔新的销售订单</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            12分钟前
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <div class="tpl-dropdown-menu-notifications-title">
-                                            <i class="am-icon-star"></i>
-                                            <span> 有3个来自人事部的消息</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            30分钟前
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <div class="tpl-dropdown-menu-notifications-title">
-                                            <i class="am-icon-folder-o"></i>
-                                            <span> 上午开会记录存档</span>
-                                        </div>
-                                        <div class="tpl-dropdown-menu-notifications-time">
-                                            1天前
-                                        </div>
-                                    </a>
-                                </li>
-
-
-                                <li class="tpl-dropdown-menu-notifications">
-                                    <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
-                                        <i class="am-icon-bell"></i> 进入列表…
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
                         <!-- 退出 -->
                         <li class="am-text-sm">
@@ -200,20 +151,20 @@
 
             <!-- 菜单 -->
             <ul class="sidebar-nav">
-                <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
+                <#--<li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>-->
                 <li class="sidebar-nav-link">
-                    <a href="index.html" class="active">
+                    <a href="/Webtextile/index" class="active">
                         <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="tables.html">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
+                    <a href="/Webtextile/admin/userManage">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="calendar.html">
-                        <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
+                    <a href="/Webtextile/admin/enterManage">
+                        <i class="am-icon-calendar sidebar-nav-link-logo"></i> 企业管理
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
@@ -271,6 +222,10 @@
             </ul>
         </div>
 
+
+        <#--<#include "common/header.ftl"/>-->
+        <#--<#include "common/skiner.ftl"/>-->
+        <#--<#include "common/sidebar.ftl"/>-->
 
         <!-- 内容区域 -->
         <div class="tpl-content-wrapper">
@@ -529,7 +484,11 @@
     <script src="/Webtextile/layer/layer.js"></script>
 
     <script>
-        layer.msg("登录成功",{icon: 6,time:1000});
+        var flag = true;
+        if(flag) {
+            layer.msg("登录成功", {icon: 6, time: 1000});
+            flag = false;
+        }
     </script>
 </body>
 </html>

@@ -1,13 +1,8 @@
-package cn.ndky.webtextile.controller;
+package cn.ndky.webtextile.controller.sys;
 
 import cn.ndky.webtextile.common.RespObj;
-import cn.ndky.webtextile.pojo.User;
-import cn.ndky.webtextile.service.UserService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
+import cn.ndky.webtextile.service.sys.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

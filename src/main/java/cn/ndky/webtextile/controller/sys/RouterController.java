@@ -1,4 +1,4 @@
-package cn.ndky.webtextile.controller;
+package cn.ndky.webtextile.controller.sys;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,13 @@ public class RouterController {
         return "login";
     }
 
-    @GetMapping("/userInfo")
-    public String userInfo(){
-        return "userInfo";
+    @GetMapping("/admin/userManage")
+    public String userManage(){
+        return "admin/userManage";
     }
 
-
+    @GetMapping("/admin/enterManage")
+    public String enterManage(){
+        return "admin/enterManage";
+    }
 }

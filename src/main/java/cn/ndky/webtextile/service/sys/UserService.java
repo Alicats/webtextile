@@ -1,4 +1,4 @@
-package cn.ndky.webtextile.service;
+package cn.ndky.webtextile.service.sys;
 
 import cn.ndky.webtextile.common.RespObj;
 import org.apache.shiro.SecurityUtils;
@@ -24,4 +24,10 @@ public interface UserService {
      * @return
      */
     public RespObj logout();
+
+    /**
+     * 管理员获取所有企业负责人
+     */
+    public RespObj initEnterpriseUserTable();
+
 }

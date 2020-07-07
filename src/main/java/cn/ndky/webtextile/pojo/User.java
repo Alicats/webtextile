@@ -1,6 +1,9 @@
 package cn.ndky.webtextile.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 public class User {
@@ -13,6 +16,9 @@ public class User {
     private String roleId;
     private int enterId;
     private String remark;
-    private Data registerTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date registerTime;
+
+    private String enterName;
 
 }

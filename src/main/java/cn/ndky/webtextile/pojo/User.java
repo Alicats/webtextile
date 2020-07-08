@@ -18,6 +18,7 @@ public class User {
     private String remark;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date registerTime;
+    private int status;
 
     private String enterName;
 

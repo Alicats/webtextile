@@ -1,6 +1,7 @@
 package cn.ndky.webtextile.config;
 
 
+import cn.ndky.webtextile.common.status.AccountStatus;
 import cn.ndky.webtextile.mapper.UserMapper;
 import cn.ndky.webtextile.pojo.User;
 import org.apache.shiro.authc.*;
@@ -36,7 +37,9 @@ public class UserRealm extends AuthorizingRealm {
         String userId = upToken.getUsername();
         User user = userMapper.getUserByUserId(userId);
         if(user!=null){
-
+            if (user.getStatus() == AccountStatus.LOCKED.getCode()){
+                throw new LockedAccountException("账号被禁用,请联系管理员!");
+            }
 
             info = new SimpleAuthenticationInfo(user,user.getPassword(), ByteSource.Util.bytes(user.getUserId()),getName());
         }

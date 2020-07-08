@@ -16,13 +16,13 @@ public class RouterController {
         return "login";
     }
 
-    @GetMapping("/admin/userManage")
-    public String userManage(){
-        return "admin/userManage";
+    @GetMapping("/admin/enterpriseManage")
+    public String enterpriseManage(){
+        return "admin/user/enterpriseManage";
     }
 
     @GetMapping("/admin/enterManage")
     public String enterManage(){
-        return "admin/enterManage";
+        return "admin/enter/enterManage";
     }
 }

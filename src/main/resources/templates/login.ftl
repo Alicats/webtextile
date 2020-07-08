@@ -78,7 +78,7 @@
                     if(dt.code === 200){
                         location.href = "/Webtextile/index";
                     }else {
-                        layer.msg("账号或密码错误",{icon: 5,time: 1000});
+                        layer.msg(dt.message,{icon: 5,time: 1000});
                     }
                 }
             })

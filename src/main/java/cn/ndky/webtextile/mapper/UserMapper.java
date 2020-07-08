@@ -12,4 +12,12 @@ public interface UserMapper {
     public User getUserByUserId(String userId);
 
     public List<User> getUserListByRoleId(String roleId);
+
+    public void delAllUser(String[] userIds);
+
+    public void delUser(String userId);
+
+    public void resetPassword(String userId, String password);
+
+
 }

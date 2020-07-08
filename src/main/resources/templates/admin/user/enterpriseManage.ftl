@@ -23,8 +23,8 @@
     <script src="/Webtextile/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
 
-        <#include "../common/header.ftl"/>
-        <#include "../common/skiner.ftl"/>
+        <#include "../../common/header.ftl"/>
+        <#include "../../common/skiner.ftl"/>
 
 
         <!-- 侧边导航栏 -->
@@ -36,10 +36,9 @@
                         <img src="/Webtextile/admin/assets/img/user04.png" alt="">
                     </div>
                     <span class="user-panel-logged-in-text">
-                  <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-                  禁言小张
-              </span>
-                    <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+                        <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+                        禁言小张
+                    </span>
                 </div>
             </div>
 
@@ -47,76 +46,120 @@
             <ul class="sidebar-nav">
                 <#--<li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>-->
                 <li class="sidebar-nav-link">
-                    <a href="/Webtextile/index">
+                    <a href="/Webtextile/index" >
                         <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                     </a>
                 </li>
-                <li class="sidebar-nav-link">
-                    <a href="/Webtextile/admin/userManage" class="active">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a href="calendar.html">
-                        <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
-                    </a>
-                </li>
+
+                <@shiro.hasRole name="admin">
+                    <li class="sidebar-nav-link">
+                        <a href="javascript:;" class="sidebar-nav-sub-title">
+                            <i class="am-icon-table sidebar-nav-link-logo"></i> 基础信息
+                            <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                        </a>
+                        <ul class="sidebar-nav sidebar-nav-sub">
+                            <li class="sidebar-nav-link">
+                                <a href="/Webtextile/admin/enterManage">
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 企业管理
+                                </a>
+                            </li>
+
+                            <li class="sidebar-nav-link">
+                                <a href="table-list-img.html">
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 生命周期管理
+                                </a>
+                            </li>
+
+                            <li class="sidebar-nav-link">
+                                <a href="table-list-img.html">
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 量纲管理
+                                </a>
+                            </li>
+
+                            <li class="sidebar-nav-link">
+                                <a href="table-list-img.html">
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 基础流管理
+                                </a>
+                            </li>
+
+                            <li class="sidebar-nav-link">
+                                <a href="table-list-img.html">
+                                    <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 群组管理
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </@shiro.hasRole>
+
+
+                <@shiro.hasAnyRoles name="admin,enterprise">
+
+                    <li class="sidebar-nav-link">
+                        <a href="javascript:;" class="sidebar-nav-sub-title active" >
+                            <i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理
+                            <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                        </a>
+                        <@shiro.hasRole name="admin">
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="/Webtextile/admin/enterpriseManage" class="active">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 企业负责人管理
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-nav-link">
+                                    <a href="table-list-img.html">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 其他用户管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </@shiro.hasRole>
+
+                        <@shiro.hasRole name="enterprise">
+                            <ul class="sidebar-nav sidebar-nav-sub">
+                                <li class="sidebar-nav-link">
+                                    <a href="/Webtextile/admin/userManage">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 供应商管理
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-nav-link">
+                                    <a href="table-list-img.html">
+                                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 内部协作人管理
+                                    </a>
+                                </li>
+                            </ul>
+                        </@shiro.hasRole>
+
+                    </li>
+                </@shiro.hasAnyRoles>
+
                 <li class="sidebar-nav-link">
                     <a href="form.html">
-                        <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
-
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a href="chart.html">
-                        <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
-
+                        <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 产品管理
                     </a>
                 </li>
 
-                <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
                 <li class="sidebar-nav-link">
-                    <a href="javascript:;" class="sidebar-nav-sub-title ">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
-                        <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
-                    </a>
-                    <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
-                        <li class="sidebar-nav-link">
-                            <a href="table-list.html" class="sub-active">
-                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
-                            </a>
-                        </li>
-
-                        <li class="sidebar-nav-link">
-                            <a href="table-list-img.html">
-                                <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a href="sign-up.html">
-                        <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
-                        <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
+                    <a href="login.html">
+                        <i class="am-icon-key sidebar-nav-link-logo"></i> 消息管理
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
                     <a href="login.html">
-                        <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a href="404.html">
-                        <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
+                        <i class="am-icon-key sidebar-nav-link-logo"></i> 报告管理
                     </a>
                 </li>
 
+                <li class="sidebar-nav-link">
+                    <a href="sign-up.html">
+                        <i class="am-icon-clone sidebar-nav-link-logo"></i> 个人信息
+                    </a>
+                </li>
             </ul>
         </div>
 
-        <#--<#include "../common/header.ftl"/>-->
-        <#--<#include "../common/skiner.ftl"/>-->
-        <#--<#include "../common/sidebar.ftl"/>-->
 
         <!-- 内容区域 -->
         <div class="tpl-content-wrapper">
@@ -136,7 +179,7 @@
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
                                                 <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 添加</button>
-                                                <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button>
+                                                <button type="button" id="delAllUser" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button>
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +198,7 @@
                                     <table width="100%" class="am-table am-table-compact am-table-bordered tpl-table-black " >
                                         <thead>
                                         <tr>
-                                            <th style="text-align: center;"><input type="checkbox"></th>
+                                            <th style="text-align: center;"><input type="checkbox" name="enterpriseCheckboxs"></th>
                                             <th style="text-align: center;">用户编号</th>
                                             <th style="text-align: center;">用户名称</th>
                                             <th style="text-align: center;">用户地址</th>
@@ -199,10 +242,13 @@
     <script src="/Webtextile/admin/assets/js/amazeui.datatables.min.js"></script>
     <script src="/Webtextile/admin/assets/js/dataTables.responsive.min.js"></script>
     <script src="/Webtextile/admin/assets/js/app.js"></script>
+    <script src="/Webtextile/layer/layer.js"></script>
 
 
     <script>
 
+
+        // 初始化加载企业负责人表格
         $(function () {
             $.ajax({
                 url: '/Webtextile/user/initEnterpriseUserTable',
@@ -213,7 +259,7 @@
                         for(var i=0;i<dt.data.length;i++){
 
                             var html = "<tr>" +
-                                            "<td style='text-align: center;'><input type='checkbox'></td>" +
+                                            "<td style='text-align: center;'><input type='checkbox' name='enterpriseCheckbox' value='"+ dt.data[i].userId +"'></td>" +
                                             "<td style='text-align: center;'>"+ dt.data[i].userId +"</td>" +
                                             "<td style='text-align: center;'>"+ dt.data[i].username +"</td>" +
                                             "<td style='text-align: center;'>"+ dt.data[i].address +"</td>" +
@@ -223,10 +269,10 @@
                                             "<td style='text-align: center;'>"+ dt.data[i].enterName +"</td>" +
                                             "<td style='text-align: center;'>" +
                                                 "<div class='tpl-table-black-operation'>" +
-                                                    "<button class=\"am-btn am-btn-success am-round am-btn-xs\"><i class='am-icon-cog'></i>重置密码</button>" +
-                                                    "<button class=\"am-btn am-btn-secondary am-round am-btn-xs\"><i class='am-icon-cog'></i>查看</button>" +
-                                                    "<button class=\"am-btn am-btn-warning am-round am-btn-xs\"><i class='am-icon-cog'></i>编辑</button>" +
-                                                    "<button class=\"am-btn am-btn-danger am-round am-btn-xs\"><i class='am-icon-cog'></i>删除</button>" +
+                                                    "<button type='button' onclick='reset(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-success am-round am-btn-xs\"><i class='am-icon-cog'></i>重置密码</button>" +
+                                                    "<button type='button' onclick='view(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-secondary am-round am-btn-xs\"><i class='am-icon-cog'></i>查看</button>" +
+                                                    "<button type='button' onclick='edit(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-warning am-round am-btn-xs\"><i class='am-icon-cog'></i>编辑</button>" +
+                                                    "<button type='button' onclick='del(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-danger am-round am-btn-xs\"><i class='am-icon-cog'></i>删除</button>" +
                                                 "</div>" +
                                             "</td>" +
                                         "</tr>";
@@ -238,7 +284,64 @@
                     }
                 }
             })
-        })
+        });
+
+        // checkbox 全选和全不选
+        $("input[name='enterpriseCheckboxs']").click(function () {
+            if(this.checked){
+                $("input[name='enterpriseCheckbox']").prop('checked','checked');
+            }else {
+                $("input[name='enterpriseCheckbox']").removeAttr('checked');
+            }
+        });
+
+        // 批量删除企业负责人
+        $("#delAllUser").click(function () {
+            var userIds=[];
+            $("input[name='enterpriseCheckbox']:checked").each(function () {
+                userIds.push($(this).val());
+            });
+
+            if(userIds.length === 0){
+                layer.msg("请选择用户", {icon: 5, time: 1000});
+            }else {
+                var index = layer.confirm("是否删除",{
+                    title:'提示',
+                    icon:3
+                },function () {
+                    layer.close(index);
+                    $.ajax({
+                        url: '/Webtextile/user/delAllUser',
+                        type: 'post',
+                        data: {
+                            userIds: userIds
+                        },
+                        success: function (dt) {
+
+                        }
+                    })
+                })
+            }
+
+
+        });
+
+        // 重置用户密码
+        function reset(value) {
+            $.ajax({
+
+            })
+            console.log(value);
+        }
+        function view(value) {
+            console.log(value);
+        }
+        function edit(value) {
+            console.log(value);
+        }
+        function del(value) {
+            console.log(value);
+        }
 
     </script>
 </body>

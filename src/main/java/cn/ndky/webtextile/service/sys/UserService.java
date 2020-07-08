@@ -26,8 +26,27 @@ public interface UserService {
     public RespObj logout();
 
     /**
-     * 管理员获取所有企业负责人
+     * 初始化所有企业负责人列表
      */
     public RespObj initEnterpriseUserTable();
 
+    /**
+     * 批量删除用户
+     */
+    public RespObj delAllUser(String[] userIds, HttpSession session);
+
+    /**
+     * 除用户根据用户编号
+     */
+    public RespObj delUser(String userId);
+
+    /**
+     * 重置用户密码
+     */
+    public RespObj resetPassword(String userId);
+
+    /**
+     * 获取该用户信息
+     */
+    public RespObj getUser(String userId);
 }

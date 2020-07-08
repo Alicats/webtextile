@@ -19,4 +19,26 @@
         FROM tb_user AS u,tb_enter AS e
         WHERE u.enter_id=e.enter_id AND u.role_id=#{roleId}
     </select>
+
+    <delete id="delAllUser" parameterType="java.util.ArrayList">
+        DELETE
+        FROM tb_user
+        WHERE user_id IN
+        <foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="delUser" parameterType="String">
+        DELETE
+        FROM tb_user
+        WHERE user_id=#{userId}
+    </delete>
+
+    <update id="resetPassword" parameterType="String">
+        UPDATE
+        FROM tb_user
+        SET password=#{password}
+        WHERE user_id=#{userId}
+    </update>
 </mapper>

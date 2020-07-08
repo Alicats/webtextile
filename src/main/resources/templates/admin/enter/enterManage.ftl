@@ -23,8 +23,8 @@
     <script src="/Webtextile/admin/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
 
-        <#include "../common/header.ftl"/>
-        <#include "../common/skiner.ftl"/>
+        <#include "../../common/header.ftl"/>
+        <#include "../../common/skiner.ftl"/>
 
         <!-- 侧边导航栏 -->
         <div class="left-sidebar">

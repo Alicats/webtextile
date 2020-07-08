@@ -90,9 +90,6 @@
                         </li>
                     </ul>
 
-                    <#--<a href="/Webtextile/admin/userManage">-->
-                        <#--<i class="am-icon-table sidebar-nav-link-logo"></i> 用户管理-->
-                    <#--</a>-->
                 </li>
                 </@shiro.hasRole>
 
@@ -107,7 +104,7 @@
                         <@shiro.hasRole name="admin">
                             <ul class="sidebar-nav sidebar-nav-sub">
                                 <li class="sidebar-nav-link">
-                                    <a href="/Webtextile/admin/userManage">
+                                    <a href="/Webtextile/admin/enterpriseManage">
                                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 企业负责人管理
                                     </a>
                                 </li>
@@ -161,9 +158,6 @@
                         <i class="am-icon-clone sidebar-nav-link-logo"></i> 个人信息
                     </a>
                 </li>
-
-
-
             </ul>
         </div>
 
@@ -406,8 +400,6 @@
                                             </td>
                                         </tr>
 
-
-                                        <!-- more data -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -427,11 +419,7 @@
     <script src="/Webtextile/layer/layer.js"></script>
 
     <script>
-        var flag = true;
-        if(flag) {
-            layer.msg("登录成功", {icon: 6, time: 1000});
-            flag = false;
-        }
+        layer.msg("登录成功", {icon: 6, time: 1000});
     </script>
 </body>
 </html>

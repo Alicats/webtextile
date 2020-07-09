@@ -292,7 +292,7 @@
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                         <div class="widget am-cf">
                             <div class="widget-head am-cf">
-                                <div class="widget-title  am-cf">用户列表</div>
+                                <div class="widget-title  am-cf">企业负责人列表</div>
                             </div>
                             <div class="widget-body  am-fr">
 
@@ -359,7 +359,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <script src="/Webtextile/admin/assets/js/amazeui.min.js"></script>
     <script src="/Webtextile/admin/assets/js/amazeui.datatables.min.js"></script>
     <script src="/Webtextile/admin/assets/js/dataTables.responsive.min.js"></script>
@@ -445,8 +445,6 @@
                     })
                 })
             }
-
-
         });
 
         // 监听用户编号input焦点失去事件
@@ -504,7 +502,6 @@
                     }
                 }
             });
-            console.log(value);
         }
 
         // 查看用户信息
@@ -520,6 +517,8 @@
             });
 
         }
+
+        // 编辑用户信息
         function edit(value) {
             $.ajax({
                 url: '/Webtextile/user/getUser/'+value,
@@ -531,6 +530,8 @@
                 }
             });
         }
+
+        // 删除用户信息
         function del(value) {
             $.ajax({
                 url: '/Webtextile/user/delUser/'+value,

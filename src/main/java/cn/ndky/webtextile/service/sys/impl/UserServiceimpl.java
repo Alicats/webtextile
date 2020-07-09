@@ -104,15 +104,19 @@ public class UserServiceimpl implements UserService {
     public RespObj resetPassword(String userId) {
         User user = userMapper.getUserByUserId(userId);
         String password = "";
+        String pwd = "";
         if(user.getRoleId().equals("enterprise")){
+            pwd = Constance.ENTERPRISE;
             password = new SimpleHash("MD5", Constance.ENTERPRISE,userId,1024).toString();
         }else if(user.getRoleId().equals("supplier")){
+            pwd = Constance.SUPPLIER;
             password = new SimpleHash("MD5", Constance.SUPPLIER,userId,1024).toString();
         }else if(user.getRoleId().equals("collaborator")){
+            pwd = Constance.COLLABORATOR;
             password = new SimpleHash("MD5", Constance.COLLABORATOR,userId,1024).toString();
         }
         userMapper.resetPassword(userId,password);
-        return RespObj.build(200,"ok",null);
+        return RespObj.build(200,pwd,null);
     }
 
     /**
@@ -123,6 +127,9 @@ public class UserServiceimpl implements UserService {
     @Override
     public RespObj getUser(String userId) {
         User user = userMapper.getUserByUserId(userId);
+        if(user == null){
+            return RespObj.build(400,"fail",null);
+        }
         return RespObj.build(200,"ok",user);
     }
 }

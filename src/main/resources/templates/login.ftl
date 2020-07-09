@@ -41,8 +41,6 @@
 
                 </div>
 
-
-
                 <form class="am-form tpl-form-line-form">
                     <div class="am-form-group">
                         <input type="text" class="tpl-form-input" id="userId" placeholder="请输入账号">
@@ -54,7 +52,7 @@
 
 
                     <div class="am-form-group">
-                        <button type="button" id="login" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+                        <button type="button" id="login" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">登录</button>
                     </div>
                 </form>
             </div>
@@ -65,6 +63,14 @@
     <script src="/Webtextile/layer/layer.js"></script>
 
     <script>
+        // 监听页面的回车按键， 触发按钮点击事件
+        $("body").keyup(function (e) {
+            if(e.keyCode === 13){
+                $('#login').click();
+            }
+        });
+
+        // 登录
         $("#login").on('click',function () {
             $.ajax({
                 url: '/Webtextile/login',

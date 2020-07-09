@@ -36,8 +36,7 @@
     </delete>
 
     <update id="resetPassword" parameterType="String">
-        UPDATE
-        FROM tb_user
+        UPDATE tb_user
         SET password=#{password}
         WHERE user_id=#{userId}
     </update>

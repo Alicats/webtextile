@@ -101,9 +101,9 @@
                             <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                         </a>
                         <@shiro.hasRole name="admin">
-                            <ul class="sidebar-nav sidebar-nav-sub">
+                            <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
                                 <li class="sidebar-nav-link">
-                                    <a href="/Webtextile/admin/enterpriseManage" class="active">
+                                    <a href="/Webtextile/admin/enterpriseManage" class="sub-active">
                                         <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 企业负责人管理
                                     </a>
                                 </li>
@@ -161,10 +161,132 @@
         </div>
 
 
+        <#-- 添加用户窗口 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="user-add-modal">
+            <div class="am-modal-dialog widget" style="width: 35%;height: 60%">
+                <div class="am-modal-hd">添加用户
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    <div class="row">
+
+                        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                            <div class="widget am-cf">
+                                <div class="widget-body am-fr">
+
+                                    <form class="am-form tpl-form-border-form tpl-form-border-br" data-am-validator>
+                                        <div class="am-form-group">
+                                            <label for="userId" class="am-u-sm-3 am-form-label">用户编号 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="userId" name="userId" placeholder="请输入用户编号" required>
+                                            </div>
+                                            <div class="am-u-sm-2">
+                                                <small id="result"></small>
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="password" class="am-u-sm-3 am-form-label">用户密码 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="password" name="password" placeholder="请输入用户密码" required>
+                                                <#--<small>请填写标题文字10-20字左右。</small>-->
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="username" class="am-u-sm-3 am-form-label">用户名 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="username" name="username" placeholder="请输入用户名" required>
+                                                <#--<small>请填写标题文字10-20字左右。</small>-->
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="am-form-group">
+                                            <label for="address" class="am-u-sm-3 am-form-label">用户地址 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="address" name="address" placeholder="请输入用户地址" >
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="email" class="am-u-sm-3 am-form-label">用户邮箱 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="email" name="email" placeholder="请输入用户邮箱" >
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="telephone" class="am-u-sm-3 am-form-label">用户号码 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="telephone" name="telephone" placeholder="请输入用户号码" >
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="am-form-group">
+                                            <label for="remark" class="am-u-sm-3 am-form-label">备注 <span class="tpl-form-line-small-title">Title</span></label>
+                                            <div class="am-u-sm-7">
+                                                <input type="text" class="tpl-form-input" id="remark" name="remark">
+                                            </div>
+                                            <div class="am-u-sm-2">
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="am-form-group">
+                                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                                <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success " id="ADDUSER">提交</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <#-- 编辑窗口 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="user-edit-modal">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">Modal 标题
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    Modal 内容。本 Modal 无法通过遮罩层关闭。
+                </div>
+            </div>
+        </div>
+
+        <#-- 查看窗口 -->
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="user-view-modal">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">Modal 标题
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    Modal 内容。本 Modal 无法通过遮罩层关闭。
+                </div>
+            </div>
+        </div>
+
         <!-- 内容区域 -->
         <div class="tpl-content-wrapper">
-
-
             <div class="row-content am-cf">
                 <div class="row">
                     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
@@ -178,7 +300,7 @@
                                     <div class="am-form-group">
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 添加</button>
+                                                <button type="button" class="am-btn am-btn-default am-btn-success" data-am-modal="{target: '#user-add-modal', closeViaDimmer: 0,dimmer: false}"><span class="am-icon-plus"></span> 添加</button>
                                                 <button type="button" id="delAllUser" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 批量删除</button>
                                             </div>
                                         </div>
@@ -246,7 +368,8 @@
 
 
     <script>
-
+        // 判断用户是否存在
+        var flag = false;
 
         // 初始化加载企业负责人表格
         $(function () {
@@ -269,9 +392,9 @@
                                             "<td style='text-align: center;'>"+ dt.data[i].enterName +"</td>" +
                                             "<td style='text-align: center;'>" +
                                                 "<div class='tpl-table-black-operation'>" +
-                                                    "<button type='button' onclick='reset(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-success am-round am-btn-xs\"><i class='am-icon-cog'></i>重置密码</button>" +
-                                                    "<button type='button' onclick='view(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-secondary am-round am-btn-xs\"><i class='am-icon-cog'></i>查看</button>" +
-                                                    "<button type='button' onclick='edit(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-warning am-round am-btn-xs\"><i class='am-icon-cog'></i>编辑</button>" +
+                                                    "<button type='button' onclick='reset(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-success am-round am-btn-xs\" ><i class='am-icon-cog'></i>重置密码</button>" +
+                                                    "<button type='button' onclick='view(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-secondary am-round am-btn-xs\" data-am-modal=\"{target: '#user-view-modal', closeViaDimmer: 0, width: 400, height: 225,dimmer: false}\"><i class='am-icon-cog'></i>查看</button>" +
+                                                    "<button type='button' onclick='edit(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-warning am-round am-btn-xs\" data-am-modal=\"{target: '#user-edit-modal', closeViaDimmer: 0, width: 400, height: 225,dimmer: false}\"><i class='am-icon-cog'></i>编辑</button>" +
                                                     "<button type='button' onclick='del(\""+ dt.data[i].userId +"\")' class=\"am-btn am-btn-danger am-round am-btn-xs\"><i class='am-icon-cog'></i>删除</button>" +
                                                 "</div>" +
                                             "</td>" +
@@ -326,21 +449,100 @@
 
         });
 
+        // 监听用户编号input焦点失去事件
+        $("input[name='userId']").on('blur',function () {
+            if($("#userId").val() !== '') {
+                $.ajax({
+                    url: '/Webtextile/user/getUser/' + $("#userId").val(),
+                    type: 'get',
+                    success: function (dt) {
+                        if (dt.code === 200) {
+                            flag = true;
+                            $("#result").text("用户已注册");
+                            $("#result").css('color', 'red');
+                        } else {
+                            flag = false;
+                            $("#result").text("用户未注册");
+                            $("#result").css('color', 'green');
+                        }
+                    }
+                })
+            }
+        });
+
+        // 添加用户
+        $("#ADDUSER").click(function () {
+            var userId = $("#userId").val();
+            var password = $("#password").val();
+            var username = $("#username").val();
+
+            if(userId === ''){
+                layer.msg('用户编号为空',{icon: 5,time: 1000});
+            }else if(password === ''){
+                layer.msg('用户密码为空',{icon: 5,time: 1000});
+            }else if(username === ''){
+                layer.msg('用户名为空',{icon: 5,time: 1000});
+            }else{
+                if(flag === true){
+                    layer.msg('用户已存在',{icon: 5,time: 1000});
+                }else{
+                    layer.msg('用户已存在',{icon: 5,time: 1000});
+                }
+            }
+
+            return false;
+        });
+
         // 重置用户密码
         function reset(value) {
             $.ajax({
-
-            })
+                url: '/Webtextile/user/resetPassword/'+value,
+                type: 'get',
+                success: function (dt) {
+                    if (dt.code === 200){
+                        layer.msg("密码为"+dt.message,{icon: 6,time: 1000})
+                    }
+                }
+            });
             console.log(value);
         }
+
+        // 查看用户信息
         function view(value) {
-            console.log(value);
+            $.ajax({
+                url: '/Webtextile/user/getUser/'+value,
+                type: 'get',
+                success: function (dt) {
+                    if (dt.code === 200){
+                        console.log(dt.data);
+                    }
+                }
+            });
+
         }
         function edit(value) {
-            console.log(value);
+            $.ajax({
+                url: '/Webtextile/user/getUser/'+value,
+                type: 'get',
+                success: function (dt) {
+                    if (dt.code === 200){
+                        console.log(dt.data);
+                    }
+                }
+            });
         }
         function del(value) {
-            console.log(value);
+            $.ajax({
+                url: '/Webtextile/user/delUser/'+value,
+                type: 'delete',
+                success: function (dt) {
+                    if (dt.code === 200){
+                        layer.msg("删除成功",{icon: 6,time: 1000},function () {
+                            location.reload();
+                        })
+                    }
+                }
+            });
         }
 
     </script>
